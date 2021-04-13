@@ -1,0 +1,1 @@
+var apiKey = ""; //Your api key between the quotes ""
