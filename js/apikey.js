@@ -1,1 +1,1 @@
-var apiKey = ""; //Your api key between the quotes ""
+var apiKey = "03d52edef9699dfcf448b44075050d61"; //Your api key between the quotes ""
