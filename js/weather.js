@@ -33,11 +33,13 @@ function getWeather() {
         $("#output").html("");
         $("#city").text(response.name);
         $("#temp").text("The temperature is: " + response.main.temp);
-        $("#humidity").text(response.main.humidity);
-        $("#pressure").text(response.main.pressure);
-        $("#weather").text(response.weather[0].main);
+        $("#humidity").text("Current humidity: " + response.main.humidity);
+        $("#pressure").text("The pressure is: " + response.main.pressure);
+        $("#weather").text("Current conditions: " + response.weather[0].main);
         $("#description").text(response.weather[0].description);
-        $("#wind").text(response.wind.speed);
+        $("#wind").text("The current wind speed is: " + response.wind.speed + " with a heading of " + response.wind.deg);
+        var src = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@4x.png"; // setting location of weather icons
+        $("#image").attr("src", src)
 
     })
 }
