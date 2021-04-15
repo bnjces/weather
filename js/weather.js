@@ -34,14 +34,24 @@ function getWeather() {
         $("#city").text(response.name);
         $("#temp").text("The temperature is: " + response.main.temp + "°F");
         $("#humidity").text("Current humidity: " + response.main.humidity + "%");
-        $("#pressure").text("The pressure is: " + (response.main.pressure * 0.02953) + " inHg"); // conversion from hpa to inHg
+        $("#pressure").text("The pressure is: " + (response.main.pressure * 0.02953).toFixed(2) + " inHg"); // conversion from hpa to inHg
         $("#weather").text("Current conditions: " + response.weather[0].main);
         $("#description").text(response.weather[0].description);
-        let dirhtml = "<i style='display: inline-block; transform: rotate(" + response.wind.deg + "deg)'>&uarr;</i>" 
+        let dirhtml = "<i style='display: inline-block; transform: rotate(" + response.wind.deg + "deg)'>&uArr;</i>" 
         // this works if you want to display a raw heading --- $("#wind").text("The current wind speed is: " + response.wind.speed + "mph with a heading of " + response.wind.deg);
         $("#wind").html("Winds are blowing " + dirhtml + " at " + response.wind.speed + " mph");
         var src = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@4x.png"; // setting location of weather icons
         $("#image").attr("src", src)
+
+        // alternative (UNFINISHED) follows to display a cardinal direction in place of a rotating arrow for wind speed: 
+        // let winds = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
+        // let deg = 11.25;
+        // for(i=0; i < winds.length; i++){
+        //     if(windir < deg){
+         //   winddirname = winds[i];
+         //   break;
+        // }
+        //}
 
     })
 }
