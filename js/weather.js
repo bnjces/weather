@@ -66,4 +66,19 @@ function getWeather5Day() {
         zip = "19130"
     }
     zip += ",us";
+    
+    var url = "http://api.openweathermap.org/data/2.5/forecast";
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "data": {zip: zip, APPID: apiKey, units: "imperial"},  
+        "method": "GET",
+        "headers": {}
+    }
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    })
+    // build for loop (while i < 40   --- i+= 8 (always add 8) -- list[i].main.humidity..etc.)
+    // response.list[i].main.temp  -- is where responses will be
 }
