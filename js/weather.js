@@ -81,11 +81,13 @@ function getWeather5Day() {
         for(i = 0; i < 5; i++){     // counter for days 1-5 in 5-day forecast
         for(j = 0; j < 40; j + 8)   // counter for the list of weather API responses
         {
-        $("#temp[i]").text("The temperature is: " + response.list[j].main.temp + "°F");
-        $("#humidity").text("Current humidity: " + response.main.humidity + "%");
-        $("#pressure").text("The pressure is: " + (response.main.pressure * 0.02953).toFixed(2) + " inHg"); // conversion from hpa to inHg
-        $("#weather").text("Current conditions: " + response.weather[0].main);
-        $("#description").text(response.weather[0].description);
+        $("#output").html("");
+        $("#city").text(response.name);
+        $("#temp"[i]).text("The temperature is: " + response.list[j].main.temp + "°F");
+        $("#humidity"[i]).text("Current humidity: " + response.list[j].main.humidity + "%");
+        $("#pressure"[i]).text("The pressure is: " + (response.list[j].main.pressure * 0.02953).toFixed(2) + " inHg"); // conversion from hpa to inHg
+        $("#weather"[i]).text("Current conditions: " + response.list[j].weather[0].main);
+        $("#description"[i]).text(response.list[j].weather[0].description);
         } // close for loop for list of weather API
         } // close for loop for 1-5 counter
     })
