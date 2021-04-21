@@ -62,7 +62,7 @@ function getWeather5Day() {
     console.log(zip);
     console.log(zip.length)
     if(zip.length != 5){
-        // if not a valid zip, use default of school
+        // if not a valid zip, use default of school in Philly
         zip = "19130"
     }
     zip += ",us";
@@ -83,7 +83,7 @@ function getWeather5Day() {
         {
         $("#output").html("");
         $("#city").text(response.name);
-        $("#temp"[i]).text("The temperature is: " + response.list[j].main.temp + "°F");
+        $("#temp[i]").text("The temperature is: " + response.list[j].main.temp + "°F");
         $("#humidity"[i]).text("Current humidity: " + response.list[j].main.humidity + "%");
         $("#pressure"[i]).text("The pressure is: " + (response.list[j].main.pressure * 0.02953).toFixed(2) + " inHg"); // conversion from hpa to inHg
         $("#weather"[i]).text("Current conditions: " + response.list[j].weather[0].main);
